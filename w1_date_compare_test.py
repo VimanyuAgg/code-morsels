@@ -1,5 +1,5 @@
 import unittest
-from w1_date_compare_bonus import get_earliest
+from w1_sol import get_earliest_bonus
 
 
 class GetEarliestTests(unittest.TestCase):
@@ -9,37 +9,37 @@ class GetEarliestTests(unittest.TestCase):
     def test_same_month_and_day(self):
         newer = "01/27/1832"
         older = "01/27/1756"
-        self.assertEqual(get_earliest(newer, older), older)
+        self.assertEqual(get_earliest_bonus(newer, older), older)
         print("Test 1 successful")
 
     def test_february_29th(self):
         newer = "02/29/1972"
         older = "12/21/1946"
-        self.assertEqual(get_earliest(newer, older), older)
+        self.assertEqual(get_earliest_bonus(newer, older), older)
         print("Test 2 successful")
 
     def test_smaller_month_bigger_day(self):
         newer = "03/21/1946"
         older = "02/24/1946"
-        self.assertEqual(get_earliest(older, newer), older)
+        self.assertEqual(get_earliest_bonus(older, newer), older)
         print("Test 3 successful")
 
     def test_same_month_and_year(self):
         newer = "06/24/1958"
         older = "06/21/1958"
-        self.assertEqual(get_earliest(older, newer), older)
+        self.assertEqual(get_earliest_bonus(older, newer), older)
         print("Test 4 successful")
 
     def test_invalid_date_allowed(self):
         newer = "02/29/2006"
         older = "02/28/2006"
-        self.assertEqual(get_earliest(older, newer), older)
+        self.assertEqual(get_earliest_bonus(older, newer), older)
         print("Test 5 successful")
 
     def test_two_invalid_dates(self):
         newer = "02/30/2006"
         older = "02/29/2006"
-        self.assertEqual(get_earliest(newer, older), older)
+        self.assertEqual(get_earliest_bonus(newer, older), older)
         print("Test 6 successful")
 
     # To test the Bonus part of this exercise, comment out the following line
@@ -51,9 +51,9 @@ class GetEarliestTests(unittest.TestCase):
         d4 = "02/30/2006"
         d5 = "02/28/2006"
         d6 = "02/29/2006"
-        self.assertEqual(get_earliest(d1, d2, d3), d1)
-        self.assertEqual(get_earliest(d1, d2, d3, d4), d4)
-        self.assertEqual(get_earliest(d1, d2, d3, d4, d5, d6), d5)
+        self.assertEqual(get_earliest_bonus(d1, d2, d3), d1)
+        self.assertEqual(get_earliest_bonus(d1, d2, d3, d4), d4)
+        self.assertEqual(get_earliest_bonus(d1, d2, d3, d4, d5, d6), d5)
         print("Test 7 successful")
 
 
