@@ -1,6 +1,6 @@
 def get_earliest(date1,date2):
-    date1_mon, date1_date, date1_year = date1.split("/")[0], date1.split("/")[1], date1.split("/")[2]
-    date2_mon, date2_date, date2_year = date2.split("/")[0], date2.split("/")[1], date2.split("/")[2]
+    date1_mon, date1_date, date1_year = date1.split("/")
+    date2_mon, date2_date, date2_year = date2.split("/")
     standard_date1 = date1_year+date1_mon+date1_date
     standard_date2 = date2_year + date2_mon + date2_date
 
