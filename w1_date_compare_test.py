@@ -2,7 +2,7 @@ import unittest
 # from w1_sol import get_earliest_bonus
 from w1_t2_get_earliest import get_earliest, get_earliest_bonus
 
-imported_func = get_earliest_bonus
+imported_func = get_earliest
 
 class GetEarliestTests(unittest.TestCase):
 
