@@ -1,8 +1,8 @@
 def compact(input_list):
-    result  = []
-    i=0
+    result = []
+    i = 0
+    input_list = list(input_list)
     while i < len(input_list):
-        print("i:{}".format(i))
         flag = False
         while (i < len(input_list) - 1) and input_list[i] == input_list[i+1]:
             i += 1
@@ -13,9 +13,8 @@ def compact(input_list):
             result.append(input_list[i-1])
         else:
             result.append(input_list[i])
-        i+=1
+        i += 1
 
-    return result
+    return iter(result)
 
 
-print(compact([1,2,3]))
