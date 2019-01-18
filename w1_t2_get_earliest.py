@@ -14,7 +14,7 @@ def get_earliest(date1,date2):
 def get_earliest_bonus(*args):
     date_dict = {} #maps standard date format to given date format
     for a in args:
-        a_mon, a_date, a_year = a.split("/")[0], a.split("/")[1], a.split("/")[2]
+        a_mon, a_date, a_year = a.split("/")
         standard_a = a_year + a_mon + a_date
         date_dict[standard_a] = a
 
