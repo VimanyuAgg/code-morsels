@@ -1,9 +1,7 @@
 import unittest
 
 
-#from w3_compact import compact
-from w3_r2_compact import compact_final_mysol as compact
-
+from w3_r2_compact import compact_sol_iter as compact
 
 
 class CompactTests(unittest.TestCase):
@@ -31,20 +29,20 @@ class CompactTests(unittest.TestCase):
     def test_empty_list(self):
         self.assertIterableEqual(compact([]), [])
 
+    # To test the Bonus part of this exercise, comment out the following line
     # @unittest.expectedFailure
     def test_accepts_iterator(self):
         nums = (n**2 for n in [1, 2, 3])
         self.assertIterableEqual(compact(nums), [1, 4, 9])
 
-
-    # @unittest.expectedFailure
+    # To test the Bonus part of this exercise, comment out the following line
+    @unittest.expectedFailure
     def test_returns_iterator(self):
         nums = iter([1, 2, 3])
         output = compact(nums)
         self.assertEqual(iter(output), iter(output))
         self.assertEqual(next(output), 1)
         self.assertEqual(next(nums), 2)
-        # self.assertEqual(next(output), 3)
 
 
 if __name__ == "__main__":
