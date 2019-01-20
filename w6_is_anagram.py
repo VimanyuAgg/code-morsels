@@ -3,7 +3,6 @@ def is_anagram_original(iter1, iter2):
 	return Counter(map(lambda x: x.lower(), iter1)) == Counter(map(lambda x: x.lower(),iter2))
 
 
-
 def is_anagram_2(iter1, iter2):
 	return sorted(iter1.lower()) == sorted(iter2.lower())
 
