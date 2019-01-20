@@ -1,7 +1,7 @@
 import unittest
 
 
-from w5_tail import tail_iterator as tail
+from w5_tail import tail_final_sol as tail
 
 
 class TailTests(unittest.TestCase):

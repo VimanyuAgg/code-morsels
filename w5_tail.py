@@ -39,3 +39,18 @@ def tail_original_iterator(seq,num):
 	return result
 
 
+from collections import deque
+
+def tail_final(seq,n):
+	if n <= 0:
+		return []
+	dq = deque(maxlen=n)
+	for s in seq:
+		dq.append(s)
+	return list(dq)
+
+def tail_final_sol(seq,n):
+	if n<= 0:
+		return []
+	return list(deque(seq, maxlen=n))
+
