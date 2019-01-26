@@ -54,28 +54,28 @@ class Node:
 def trie_construction(patterns):
 	root = Node()
 	for pattern in patterns:
-		print("looping through pattern: {}".format(pattern))
+		# print("looping through pattern: {}".format(pattern))
 		current_node = root
-		print("current_node set to root:{}".format(root))
+		# print("current_node set to root:{}".format(root))
 
 		for p in pattern:
-			print("adding: {}".format(p))
-			print("root next_vals: {}".format(root.next_vals))
-			print("current_node.next_vals: {}".format(current_node.next_vals))
+			# print("adding: {}".format(p))
+			# print("root next_vals: {}".format(root.next_vals))
+			# print("current_node.next_vals: {}".format(current_node.next_vals))
 			if p in current_node.next_vals:
-				print("{} exists inside {} next vals:{}".format(p, current_node, current_node.next_vals))
+				# print("{} exists inside {} next vals:{}".format(p, current_node, current_node.next_vals))
 				for child in current_node.next:
 					if p == child.val:
 						current_node = child
 			else:
 				new_node = Node(p)
 				current_node.next = new_node
-				print("current_node.next:{}".format(current_node.next))
-				print("current_node.next_vals:{}".format(current_node.next_vals))
+				# print("current_node.next:{}".format(current_node.next))
+				# print("current_node.next_vals:{}".format(current_node.next_vals))
 				current_node = new_node
-				print("current_node is now node: {}".format(current_node))
-				print("current_node.next: {}".format(current_node.next))
-				print("current_node.next_vals:{}".format(current_node.next_vals))
+				# print("current_node is now node: {}".format(current_node))
+				# print("current_node.next: {}".format(current_node.next))
+				# print("current_node.next_vals:{}".format(current_node.next_vals))
 	return root
 
 

@@ -46,7 +46,7 @@ class NodeTests(unittest.TestCase):
     #         self.assertEqual(t1_child3_2.is_leaf, True)
 
     def test_herding_patterns(self):
-        trie_matching("bananas",["ananas","add"])
+        trie_matching("bananas ananas",["ananas","add"])
 
 
 
