@@ -17,6 +17,10 @@ class TestNumRefills(unittest.TestCase):
         res = min_refills([0,750,900],3,400)
         self.assertEqual(res,"impossible")
 
+    def test_4(self):
+        res = min_refills([0,400,750,900,1400],3,400)
+        self.assertEqual(res, 3)
+
 
 if __name__ == "__main__":
     unittest.main()
