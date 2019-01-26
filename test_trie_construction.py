@@ -31,7 +31,7 @@ class NodeTests(unittest.TestCase):
 
 
     def test_trie_constuction(self):
-        t1 = trie_construction([['a', 'n', 'a', 's'], ['a', 'd', 'd']])
+        t1 = trie_construction(["anas", 'add'])
         self.assertEqual(t1.next_vals,{'a'})
         t1_child1 = t1.next[0]
         self.assertEqual(t1_child1.val, 'a')
