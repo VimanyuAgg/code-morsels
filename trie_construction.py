@@ -79,3 +79,29 @@ def trie_construction(patterns):
 	return root
 
 
+def trie_helper(text, root):
+	current = root
+	found_val = ""
+	for t in text:
+		if t in current.next_vals:
+			for child in current.next:
+				if child.val == t:
+					found_val += t
+					current = child
+					break
+			if current.is_leaf:
+				print("{}: found!".format(found_val))
+				return
+		else:
+			return
+
+
+def trie_matching(text, list_of_patterns):
+	root = trie_construction(list_of_patterns)
+	while len(text) != 0:
+		trie_helper(text, root)
+		if len(text) == 1:
+			print("done")
+			return
+		else:
+			text = text[1:]
