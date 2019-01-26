@@ -77,6 +77,15 @@ class CircleTests(unittest.TestCase):
 
         self.assertEqual(str(context.exception), "Radius cannot be negative")
 
+    # Added
+    @unittest.expectedFailure
+    def test_no_negative_constructor(self):
+        with self.assertRaises(ValueError) as context:
+            circle = Circle(2)
+            circle.area = 3
+
+        self.assertEqual(str(context.exception), "Radius cannot be negative")
+
 
 if __name__ == "__main__":
     unittest.main()
