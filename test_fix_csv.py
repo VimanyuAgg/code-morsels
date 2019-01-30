@@ -30,7 +30,7 @@ class FixCSVTests(unittest.TestCase):
             2005,Hyundai,Sonata
             1995,Mercedes-Benz,C-Class
         """).lstrip()
-        with make_file(old_contents) as old, make_file("") as new:
+        with make_file(old_contents) as old, make_file("dandom.csv") as new:
             output = run_program(PYFILE_NAME, args=[old, new])
             with open(new) as new_file:
                 new_contents = new_file.read()
