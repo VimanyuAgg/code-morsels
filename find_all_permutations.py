@@ -29,7 +29,7 @@ def print_permute(word):
     l = len(word)
     exchanged = True
     while exchanged:
-        print ''.join(a)
+        print(''.join(a))
         i = l - 1
         exchanged = False
         while i != 0:
