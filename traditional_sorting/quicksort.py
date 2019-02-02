@@ -1,3 +1,30 @@
+def partition_median_of_three(array, begin, end):
+    arr_3 = [array[begin],array[(begin+end)//2] ,array[end]]
+    max_val = max(arr_3)
+    arr_3.remove(max_val)
+    print(f"max_val: {max_val}")
+    min_val = min(arr_3)
+    arr_3.remove(min_val)
+    print(f"min_val : {min_val }")
+
+    if max_val == min_val:
+        print("high chances that the array contains same values")
+    if end == array.index(max_val) and begin == array.index(min_val):
+        print("high chances that array is already sorted")
+
+    median = arr_3[0]
+
+    array[begin], array[(begin+end)//2], array[end] = median, min_val, max_val
+    pivot = begin
+    pos = pivot
+    for i in range(begin+1, end+1):
+        if array[i] <= array[pivot]:
+            pos += 1
+            array[i], array[pos] = array[pos], array[i]
+
+    array[pivot], array[pos] = array[pos], array[pivot]
+    return pos
+
 def quicksort_last_elem_pivot(array, begin = 0, end = None):
     if end is None:
         end = len(array) - 1
@@ -46,7 +73,7 @@ def quicksort_modular(array, begin=0, end=None):
         # avoid checking end is None in each iteration
         if begin >= end:
             return array
-        pivot = partition(array, begin, end)
+        pivot = partition_median_of_three(array, begin, end)
         _inner_quicksort(array, begin, pivot-1)
         _inner_quicksort(array, pivot+1, end)
         return array
