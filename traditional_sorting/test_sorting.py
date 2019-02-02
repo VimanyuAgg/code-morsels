@@ -3,8 +3,8 @@ from timeit import default_timer as timer
 import copy
 from traditional_sorting.bubblesort import bubble_sort_original as bubblesort
 from traditional_sorting.selectionsort import selection_sort as selectionsort
-from traditional_sorting.insertion_sort import insertion_sort as insertionsort
-from traditional_sorting.insertion_sort import insertion_sort_2 as insertionsort2
+from traditional_sorting.insertion_sort import insertion_sort as insertionsort, insertion_sort_2 as insertionsort2
+from traditional_sorting.mergesort import  merge_sort_original as mergesort
 
 # run as python -m traditional_sorting.test_sorting from the parent directory
 
@@ -64,6 +64,17 @@ class TestSorting(unittest.TestCase):
         print("after for arr2 {}: {}".format(arr_test2, end5 - end4))
         print("after for arr3 {}: {}".format(arr_test3, end6 - end5))
 
+    def test_merge_sort(self):
+        arr = [2,3,1,4,5]
+        arr2 = [2, 3, 0, 4, -1,10]
+        arr3 = [1, 3, 2, 5, 4, 7, 6, 9, 8, 11, 10, 13, 12, 15, 14, 17, 16, 19, 18]
+        arr_test = copy.deepcopy(arr)
+        arr_test2 = copy.deepcopy(arr2)
+        arr_test3 = copy.deepcopy(arr3)
+
+        self.assertEqual(mergesort(arr), sorted(arr_test))
+        self.assertEqual(mergesort(arr2), sorted(arr_test2))
+        self.assertEqual(mergesort(arr3), sorted(arr_test3))
 
 
 if __name__ == "__main__":
