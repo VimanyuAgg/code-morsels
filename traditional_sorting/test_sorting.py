@@ -93,15 +93,15 @@ class TestSorting(unittest.TestCase):
 
     def test_radixsort(self):
         arr = [2,3,1,4,5]
-        arr2 = [2, 3, 0, 4, -1,10]
+        arr2 = [2, 3, 0, -1, -5,10]
         arr3 = [1, 3, 2, 5, 4, 7, 6, 9, 8, 11, 10, 13, 12, 15, 14, 17, 16, 19, 18]
         arr_test = copy.deepcopy(arr)
         arr_test2 = copy.deepcopy(arr2)
         arr_test3 = copy.deepcopy(arr3)
 
-        self.assertEqual(quicksort(arr), sorted(arr_test))
-        self.assertEqual(quicksort(arr2), sorted(arr_test2))
-        self.assertEqual(quicksort(arr3), sorted(arr_test3))
+        self.assertEqual(radixsort(arr), sorted(arr_test))
+        self.assertEqual(radixsort(arr2), sorted(arr_test2))
+        self.assertEqual(radixsort(arr3), sorted(arr_test3))
 
 
 if __name__ == "__main__":
