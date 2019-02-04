@@ -1,6 +1,6 @@
 import unittest
 
-from w17_parse_ranges import parse_ranges_original_3 as parse_ranges
+from w17_parse_ranges import parse_ranges_after_2 as parse_ranges
 
 
 class ParseRangesTests(unittest.TestCase):
