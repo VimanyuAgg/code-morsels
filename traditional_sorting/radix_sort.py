@@ -121,6 +121,42 @@ def radixSort(a_list, base=10):
         a_list = merge(split(a_list, base, digit_num))
     return merge(split_by_sign(a_list))
 
+
+import itertools
+
+def radix_sort_bit_manipulation(unsorted):
+    "Fast implementation of radix sort for any size num."
+    maximum, minimum = max(unsorted), min(unsorted)
+
+    max_bits = maximum.bit_length()
+    highest_byte = max_bits // 8 if max_bits % 8 == 0 else (max_bits // 8) + 1
+
+    min_bits = minimum.bit_length()
+    lowest_byte = min_bits // 8 if min_bits % 8 == 0 else (min_bits // 8) + 1
+
+    print(f"highest_byte: {highest_byte}")
+    sorted_list = unsorted
+    for offset in range(highest_byte):
+        sorted_list = radix_sort_offset(sorted_list, offset)
+
+    return sorted_list
+
+def radix_sort_offset(unsorted, offset):
+    "Helper function for radix sort, sorts each offset."
+    byte_check = (0xFF << offset*8)
+
+    print(f"byte check length: {byte_check.bit_length()}")
+    print(f"byte_check:{byte_check}")
+    buckets = [[] for _ in range(256)]
+
+    for num in unsorted:
+        byte_at_offset = (num & byte_check) >> offset*8
+        print(f"(num & byte_check): {num & byte_check}")
+
+        print(f"num: {num} goes in bucket: {byte_at_offset}")
+        buckets[byte_at_offset].append(num)
+
+    return list(itertools.chain.from_iterable(buckets))
 # print(radixSort([-1,-5,-50,-50,0,2,3]))
 # print(radixSort([0,0,0,0,0,0]))
 # print(radixSort([1,4,5,2,3]))
@@ -132,3 +168,5 @@ def radixSort(a_list, base=10):
 # print(radix_sort([0,0,0,0,0,0]))
 # print(radix_sort([-1,-1,-1,-1,-1,-1]))
 # print(radix_sort([2, 3, 0, -1, -5,10]))
+
+print(radix_sort_bit_manipulation([1,4,257,2,3]))
