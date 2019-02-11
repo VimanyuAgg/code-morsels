@@ -6,6 +6,7 @@ class TestNode(unittest.TestCase):
     def testNullNodeCreation(self):
         h = Node()
         print(h)
+        self.assertEqual(h, None)
         self.assertEqual(h.val, None)
         self.assertEqual(h.next, None)
 

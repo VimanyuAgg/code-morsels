@@ -23,6 +23,8 @@ class Node():
             raise TypeError(f"{n} is not of type Node")
 
     def __repr__(self):
+        if self.val is None:
+            return str(self.val)
         if self.next is None:
             return f"Node({self.val})->None"
         return f"Node({self.val})->Node({self.next.val})"
@@ -48,11 +50,21 @@ class LinkedList():
         current = self.head
         for val in val_list:
             n = Node(val)
-            if current is None:
-                current = n
-            else:
-                current.next = n
-
+            if self.head.val is None:
+                self.head = n
+            current.next = n
             current = current.next
+
+    def __repr__(self):
+        curr = self.head
+        if curr is None:
+            return curr
+        res = ""
+        while curr != None:
+            res += f"Node({curr.val})->"
+            curr = curr.next
+
+        return res[:-2]
+
 
 
