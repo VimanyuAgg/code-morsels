@@ -8,7 +8,7 @@ def sum_lists(head1, head2):
     carry = 0
     counter = 0
 
-    while(l1 != None and l2 != None):
+    while(l1 != None or l2 != None):
 
         print("iteration: {} - sum: {}, carry = {}".format(counter,sum,carry))
         counter += 1
