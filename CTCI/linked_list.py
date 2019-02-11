@@ -30,6 +30,7 @@ class Node():
         return f"Node({self.val})->Node({self.next.val})"
 
 class LinkedList():
+    '''Just a Linked List Creater'''
     def __init__(self,vals_list = None):
         self.head = Node()
         if vals_list is None:

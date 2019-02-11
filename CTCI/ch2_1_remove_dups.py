@@ -17,3 +17,4 @@ def remove_dups(ll_root):
         else:
             all_vals.add(curr.next.val)
             curr = curr.next
+    return ll_root
