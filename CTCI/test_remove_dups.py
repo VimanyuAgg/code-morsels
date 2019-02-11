@@ -18,14 +18,16 @@ class TestRemoveDups(unittest.TestCase):
     def test2(self):
         ll = LinkedList([1, 1, 2, 3,2,1])
         r = ll.head
+        print(ll)
+        print("**")
         remove_dups(r)
-
+        print(ll)
         self.assertEqual(r.val, 1)
         self.assertEqual(r.next.val, 2)
         self.assertEqual(r.next.next.val, 3)
         self.assertEqual(r.next.next.next, None)
 
-    def test2(self):
+    def test3(self):
         ll = LinkedList()
         r = ll.head
         remove_dups(r)
