@@ -25,6 +25,13 @@ class TestRemoveDups(unittest.TestCase):
         self.assertEqual(r.next.next.val, 3)
         self.assertEqual(r.next.next.next, None)
 
+    def test2(self):
+        ll = LinkedList()
+        r = ll.head
+        remove_dups(r)
+        print(r)
+        self.assertEqual(r.val, None)
+
 
 if __name__ == "__main__":
     unittest.main()

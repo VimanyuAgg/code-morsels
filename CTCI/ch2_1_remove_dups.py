@@ -3,10 +3,12 @@ from CTCI.linked_list import Node
 def remove_dups(ll_root):
     all_vals = set()
     curr = ll_root
-    if curr != None:
-        all_vals.add(curr.val)
-    else:
-        return
+    # if curr.val != None:
+    #     all_vals.add(curr.val)
+    # else:
+    #     return
+
+    all_vals.add(curr.val)
 
     while(curr.next != None):
         if (curr.next.val in all_vals):
@@ -17,4 +19,3 @@ def remove_dups(ll_root):
         else:
             all_vals.add(curr.next.val)
             curr = curr.next
-    return ll_root
