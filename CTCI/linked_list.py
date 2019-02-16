@@ -22,6 +22,12 @@ class Node():
         else:
             raise TypeError(f"{n} is not of type Node")
 
+    def __eq__(self,other):
+        return self.val == other.val
+
+    def __hash__(self):
+        return hash(self._val)
+
     def __repr__(self):
         if self.val is None:
             return str(self.val)

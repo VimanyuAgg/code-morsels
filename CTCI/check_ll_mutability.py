@@ -43,5 +43,14 @@ def change_list2(n):
     n3.next = n4
     n.next = n1
 
+def check3():
+    n1 = Node(300)
+    n1.next = Node(400)
+    n1.next.next = Node(500)
+    h = n1
+    h.next = Node(10000)
+    print(n1)
+
 check1()
 check2()
+check3()
