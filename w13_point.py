@@ -76,3 +76,4 @@ class Point_after:
 	# Alternatively
 	def __eq__(self, other):
 		return (self.x, self.y, self.z) == (other.x, other.y, other.z)
+

@@ -3,6 +3,7 @@ def make_change(n):
     return make_change_helper(n,denos, 0)
 
 def make_change_helper(amount, denos, index):
+    print(f"amount:{amount} called with index:{index}")
     deno_amount = denos[index]
     if (index == len(denos)-1):
         remaining = amount % deno_amount
@@ -18,4 +19,4 @@ def make_change_helper(amount, denos, index):
     return ways
 
 
-print(make_change(5))
+print(make_change(10))

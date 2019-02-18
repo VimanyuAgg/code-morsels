@@ -26,3 +26,9 @@ def iterleave_after_2(seq1, seq2):
 		for pair in zip(seq1, seq2)
 		for val in pair
     )
+
+seq1 = (n**2 for n in range(1,3))
+seq2 = (n**3 for n in range(1,3))
+res = iterleave_after_2(seq1, seq2)
+for r in res:
+	print(r)
