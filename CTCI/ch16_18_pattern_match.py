@@ -1,8 +1,13 @@
+
+
 from collections import Counter
 
 def pattern_match(pattern, value):
     if len(value) == 0:
         return len(pattern) == 0
+
+    if len(pattern) == 0:
+        return False
 
     if len(pattern) == 1:
         return True
@@ -21,22 +26,31 @@ def pattern_match(pattern, value):
 
     index_p2_pattern = pattern.find(p2) ## might be -1
 
+    print(f"num_p1: {num_p1}, num_p2:{num_p2}, has_p2:{has_p2}, p2: {p2}, p1: {p1}")
     for end_p1 in range(1,len(value)):
+
         val_p1 = value[:end_p1]
-        size_p1 = num_p1*val_p1 ## length of all p1 inside value
+        print(f"** end_p1: {end_p1}, val_p1: {val_p1}")
+        size_p1 = num_p1*len(val_p1) ## length of all p1 inside value
         size_p2 = len(value) - size_p1
+        print(f"len(value) - size_p1: {len(value)} - {size_p1}= {len(value) - size_p1}")
         if has_p2:
             len_p2 = size_p2//num_p2 # actual length of p2 element
         else:
             len_p2 = 0
+        if has_p2 and len_p2 == 0:
+            continue ## If b exists in pattern, it cannot be ""
 
+        print(f"size_p1:{size_p1}, size_p2:{size_p2}, len_p2:{len_p2}")
         if size_p2 % num_p2 != 0:
             continue #len_p2 should be an integer
 
         offset = len(val_p1)*index_p2_pattern
         val_p2 = value[offset:len_p2+offset] if has_p2 else ""
+        print(f"val_p2:{val_p2}")
         candidate = recreate_value_from_pattern(pattern,val_p1,val_p2)
-        if candidate is value:
+        print(f"candidate: {candidate}")
+        if candidate == value:
             return True
     return False
 
