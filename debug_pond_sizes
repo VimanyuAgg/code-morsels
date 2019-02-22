@@ -1,0 +1,213 @@
+***pond_helper called for r:0, c:0, current_size:1***
+visited_map:[[True, False, False, False], [False, False, False, False], [False, False, False, False], [False, False, False, False]]
+checking for r_vector[i]:-1, c_vector[i]:-1, overall_r:-1, overall_c:-1
+is_valid for r:-1,c:-1 - res:False
+checking for r_vector[i]:-1, c_vector[i]:0, overall_r:-1, overall_c:0
+is_valid for r:-1,c:0 - res:False
+checking for r_vector[i]:-1, c_vector[i]:1, overall_r:-1, overall_c:1
+is_valid for r:-1,c:1 - res:False
+checking for r_vector[i]:0, c_vector[i]:-1, overall_r:0, overall_c:-1
+is_valid for r:0,c:-1 - res:False
+checking for r_vector[i]:0, c_vector[i]:1, overall_r:0, overall_c:1
+is_valid for r:0,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:False
+earth[r+r_vector[i]][c+c_vector[i]]:2
+checking for r_vector[i]:1, c_vector[i]:-1, overall_r:1, overall_c:-1
+is_valid for r:1,c:-1 - res:False
+checking for r_vector[i]:1, c_vector[i]:0, overall_r:1, overall_c:0
+is_valid for r:1,c:0 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:False
+earth[r+r_vector[i]][c+c_vector[i]]:0
+calling new pond_helper
+***pond_helper called for r:1, c:0, current_size:2***
+visited_map:[[True, True, False, False], [True, False, False, False], [False, False, False, False], [False, False, False, False]]
+checking for r_vector[i]:-1, c_vector[i]:-1, overall_r:0, overall_c:-1
+is_valid for r:0,c:-1 - res:False
+checking for r_vector[i]:-1, c_vector[i]:0, overall_r:0, overall_c:0
+is_valid for r:0,c:0 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:0
+checking for r_vector[i]:-1, c_vector[i]:1, overall_r:0, overall_c:1
+is_valid for r:0,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:2
+checking for r_vector[i]:0, c_vector[i]:-1, overall_r:1, overall_c:-1
+is_valid for r:1,c:-1 - res:False
+checking for r_vector[i]:0, c_vector[i]:1, overall_r:1, overall_c:1
+is_valid for r:1,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:False
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:1, c_vector[i]:-1, overall_r:2, overall_c:-1
+is_valid for r:2,c:-1 - res:False
+checking for r_vector[i]:1, c_vector[i]:0, overall_r:2, overall_c:0
+is_valid for r:2,c:0 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:False
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:1, c_vector[i]:1, overall_r:2, overall_c:1
+is_valid for r:2,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:False
+earth[r+r_vector[i]][c+c_vector[i]]:1
+size found after recursive call: 2 - overall_r:1, overall_c:0
+visited_map
+[[True, True, False, False], [True, True, False, False], [True, True, False, False], [False, False, False, False]]
+checking for r_vector[i]:1, c_vector[i]:1, overall_r:1, overall_c:1
+is_valid for r:1,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+***pond_helper called for r:0, c:3, current_size:1***
+visited_map:[[True, True, True, True], [True, True, False, False], [True, True, False, False], [False, False, False, False]]
+checking for r_vector[i]:-1, c_vector[i]:-1, overall_r:-1, overall_c:2
+is_valid for r:-1,c:2 - res:False
+checking for r_vector[i]:-1, c_vector[i]:0, overall_r:-1, overall_c:3
+is_valid for r:-1,c:3 - res:False
+checking for r_vector[i]:-1, c_vector[i]:1, overall_r:-1, overall_c:4
+is_valid for r:-1,c:4 - res:False
+checking for r_vector[i]:0, c_vector[i]:-1, overall_r:0, overall_c:2
+is_valid for r:0,c:2 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:0, c_vector[i]:1, overall_r:0, overall_c:4
+is_valid for r:0,c:4 - res:False
+checking for r_vector[i]:1, c_vector[i]:-1, overall_r:1, overall_c:2
+is_valid for r:1,c:2 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:False
+earth[r+r_vector[i]][c+c_vector[i]]:0
+calling new pond_helper
+***pond_helper called for r:1, c:2, current_size:2***
+visited_map:[[True, True, True, True], [True, True, True, False], [True, True, False, False], [False, False, False, False]]
+checking for r_vector[i]:-1, c_vector[i]:-1, overall_r:0, overall_c:1
+is_valid for r:0,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:2
+checking for r_vector[i]:-1, c_vector[i]:0, overall_r:0, overall_c:2
+is_valid for r:0,c:2 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:-1, c_vector[i]:1, overall_r:0, overall_c:3
+is_valid for r:0,c:3 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:0
+checking for r_vector[i]:0, c_vector[i]:-1, overall_r:1, overall_c:1
+is_valid for r:1,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:0, c_vector[i]:1, overall_r:1, overall_c:3
+is_valid for r:1,c:3 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:False
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:1, c_vector[i]:-1, overall_r:2, overall_c:1
+is_valid for r:2,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:1, c_vector[i]:0, overall_r:2, overall_c:2
+is_valid for r:2,c:2 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:False
+earth[r+r_vector[i]][c+c_vector[i]]:0
+calling new pond_helper
+***pond_helper called for r:2, c:2, current_size:3***
+visited_map:[[True, True, True, True], [True, True, True, True], [True, True, True, False], [False, False, False, False]]
+checking for r_vector[i]:-1, c_vector[i]:-1, overall_r:1, overall_c:1
+is_valid for r:1,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:-1, c_vector[i]:0, overall_r:1, overall_c:2
+is_valid for r:1,c:2 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:0
+checking for r_vector[i]:-1, c_vector[i]:1, overall_r:1, overall_c:3
+is_valid for r:1,c:3 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:0, c_vector[i]:-1, overall_r:2, overall_c:1
+is_valid for r:2,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:0, c_vector[i]:1, overall_r:2, overall_c:3
+is_valid for r:2,c:3 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:False
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:1, c_vector[i]:-1, overall_r:3, overall_c:1
+is_valid for r:3,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:False
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:1, c_vector[i]:0, overall_r:3, overall_c:2
+is_valid for r:3,c:2 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:False
+earth[r+r_vector[i]][c+c_vector[i]]:0
+calling new pond_helper
+***pond_helper called for r:3, c:2, current_size:4***
+visited_map:[[True, True, True, True], [True, True, True, True], [True, True, True, True], [False, True, True, False]]
+checking for r_vector[i]:-1, c_vector[i]:-1, overall_r:2, overall_c:1
+is_valid for r:2,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:-1, c_vector[i]:0, overall_r:2, overall_c:2
+is_valid for r:2,c:2 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:0
+checking for r_vector[i]:-1, c_vector[i]:1, overall_r:2, overall_c:3
+is_valid for r:2,c:3 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:0, c_vector[i]:-1, overall_r:3, overall_c:1
+is_valid for r:3,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:0, c_vector[i]:1, overall_r:3, overall_c:3
+is_valid for r:3,c:3 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:False
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:1, c_vector[i]:-1, overall_r:4, overall_c:1
+is_valid for r:4,c:1 - res:False
+checking for r_vector[i]:1, c_vector[i]:0, overall_r:4, overall_c:2
+is_valid for r:4,c:2 - res:False
+checking for r_vector[i]:1, c_vector[i]:1, overall_r:4, overall_c:3
+is_valid for r:4,c:3 - res:False
+size found after recursive call: 4 - overall_r:3, overall_c:2
+visited_map
+[[True, True, True, True], [True, True, True, True], [True, True, True, True], [False, True, True, True]]
+checking for r_vector[i]:1, c_vector[i]:1, overall_r:3, overall_c:3
+is_valid for r:3,c:3 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+size found after recursive call: 4 - overall_r:2, overall_c:2
+visited_map
+[[True, True, True, True], [True, True, True, True], [True, True, True, True], [False, True, True, True]]
+checking for r_vector[i]:1, c_vector[i]:1, overall_r:2, overall_c:3
+is_valid for r:2,c:3 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+size found after recursive call: 4 - overall_r:1, overall_c:2
+visited_map
+[[True, True, True, True], [True, True, True, True], [True, True, True, True], [False, True, True, True]]
+checking for r_vector[i]:1, c_vector[i]:0, overall_r:1, overall_c:3
+is_valid for r:1,c:3 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:1, c_vector[i]:1, overall_r:1, overall_c:4
+is_valid for r:1,c:4 - res:False
+***pond_helper called for r:3, c:0, current_size:1***
+visited_map:[[True, True, True, True], [True, True, True, True], [True, True, True, True], [True, True, True, True]]
+checking for r_vector[i]:-1, c_vector[i]:-1, overall_r:2, overall_c:-1
+is_valid for r:2,c:-1 - res:False
+checking for r_vector[i]:-1, c_vector[i]:0, overall_r:2, overall_c:0
+is_valid for r:2,c:0 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:-1, c_vector[i]:1, overall_r:2, overall_c:1
+is_valid for r:2,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:0, c_vector[i]:-1, overall_r:3, overall_c:-1
+is_valid for r:3,c:-1 - res:False
+checking for r_vector[i]:0, c_vector[i]:1, overall_r:3, overall_c:1
+is_valid for r:3,c:1 - res:True
+visited[r+r_vector[i]][c+c_vector[i]]:True
+earth[r+r_vector[i]][c+c_vector[i]]:1
+checking for r_vector[i]:1, c_vector[i]:-1, overall_r:4, overall_c:-1
+is_valid for r:4,c:-1 - res:False
+checking for r_vector[i]:1, c_vector[i]:0, overall_r:4, overall_c:0
+is_valid for r:4,c:0 - res:False
+checking for r_vector[i]:1, c_vector[i]:1, overall_r:4, overall_c:1
+is_valid for r:4,c:1 - res:False
+[2, 4, 1]
