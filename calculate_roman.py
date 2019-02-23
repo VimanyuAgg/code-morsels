@@ -16,7 +16,7 @@ def roman_to_decimal(roman):
             current_char = roman[i].upper()
             next_char = roman[i+1].upper()
             if R2D_MAP[next_char] <= R2D_MAP[current_char]:
-                decimal_sum += R2D_MAP[roman[i]]
+                decimal_sum += R2D_MAP[current_char]
                 print(f"i:{i}, roman[i]: {current_char}, decimal_sum:{decimal_sum}")
                 i += 1
             else:
@@ -47,16 +47,16 @@ def roman_to_decimal(roman):
 
 class TestCalculateRoman(unittest.TestCase):
     def test1(self):
-        self.assertEqual(roman_to_decimal('I'),1)
+        self.assertEqual(roman_to_decimal('i'),1)
 
     def test2(self):
-        self.assertEqual(roman_to_decimal('XI'),11)
+        self.assertEqual(roman_to_decimal('xI'),11)
 
     def test3(self):
-        self.assertEqual(roman_to_decimal('MCMXCVIII'),1998)
-    #
+        self.assertEqual(roman_to_decimal('MCMXCViIi'),1998)
+
     def test4(self):
-        self.assertEqual(roman_to_decimal('MMMCMXCIX'),3999)
+        self.assertEqual(roman_to_decimal('MMmCMXCIX'),3999)
 
 
 if __name__ == "__main__":
