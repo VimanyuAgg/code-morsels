@@ -7,7 +7,13 @@ def computePrefixFunction(P):
             print(f"while_loop_counter:{while_loop_counter}, i;{i}")
             while_loop_counter+=1
             # border -= 1
+            ## Take the longest border of our current border
+            ## Our current border ends in position: border - 1
             border = s[border-1]
+
+        ## Breaking out of the loop may be due to 2 conditions:
+        ##Condition1: border == 0 and values still don't match
+        ##Condition2: border >=0 and values match
         if P[border] == P[i]:
             border += 1
         else:
