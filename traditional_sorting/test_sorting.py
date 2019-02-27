@@ -100,7 +100,7 @@ class TestSorting(unittest.TestCase):
         arr_test3 = copy.deepcopy(arr3)
 
         self.assertEqual(radixsort(arr), sorted(arr_test))
-        # self.assertEqual(radixsort(arr2), sorted(arr_test2))
+        self.assertEqual(radixsort(arr2), sorted(arr_test2))
         self.assertEqual(radixsort(arr3), sorted(arr_test3))
 
 

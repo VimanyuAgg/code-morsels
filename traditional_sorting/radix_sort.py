@@ -19,7 +19,7 @@ def radix_sort(array):
             if abs(i) > div_val -1:
                 # we need another run if digits of any i in current run exceeds those in (mod_val -1)
                 # need an extra run so that values fall into bucket[0] and bucket[9]
-                # mod_val starts in 10 so chosen this
+                # mod_val starts in 10 so chosen div_val - 1
                 need_run.add(True)
 
             val = i % mod_val
@@ -126,6 +126,7 @@ import itertools
 
 def radix_sort_bit_manipulation(unsorted):
     "Fast implementation of radix sort for any size num."
+    '''Doesn't work with negative numbers'''
     maximum, minimum = max(unsorted), min(unsorted)
 
     max_bits = maximum.bit_length()
@@ -169,4 +170,4 @@ def radix_sort_offset(unsorted, offset):
 # print(radix_sort([-1,-1,-1,-1,-1,-1]))
 # print(radix_sort([2, 3, 0, -1, -5,10]))
 
-print(radix_sort_bit_manipulation([1,4,257,2,3]))
+# print(radix_sort_bit_manipulation([1,4,257,2,3]))
