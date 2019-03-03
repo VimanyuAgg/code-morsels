@@ -1,0 +1,6 @@
+run as python -m graph_practice.acyclicity < graph_practice/input_acyclic and delete this line
+5 4
+1 2
+4 1
+2 3
+3 1

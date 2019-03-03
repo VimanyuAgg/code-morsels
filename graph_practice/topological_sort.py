@@ -33,6 +33,13 @@ graph3 = {
     "q": []
 }
 
+graph4 = {
+    "a": ["b"],
+    "b": [],
+    "c": ["a"],
+    "d": ["a"]
+}
+
 from collections import deque
 
 GRAY, BLACK = 0, 1
@@ -58,6 +65,7 @@ def topological(graph):
 # check how it works
 print(topological(graph1))
 print(topological(graph2))
+print(topological(graph4))
 
 try:
     topological(graph3)
