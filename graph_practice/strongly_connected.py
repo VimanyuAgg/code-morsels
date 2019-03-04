@@ -22,15 +22,103 @@ sys.setrecursionlimit(200000)
 # Merge all the sets e.g. [{2,3,4}, {3,5},{1}] -> [{2,3,4,5},{1}]
 # Return length of the list
 
+from collections import OrderedDict
 
-# def number_of_strongly_connected_components(adj):
-#     indegree_adj = [[] for _ in range(len(adj))]
-#     print(indegree_adj)
-#     for i in range(len(adj)):
-#         for val in adj[i]:
-#             indegree_adj[val].append(i)
-#
-#     print(indegree_adj)
+def find_postorders_reverse_graph(postorder,indegree_adj):
+    visited = [False]*len(indegree_adj)
+    counter = 1
+
+    def dfs(node):
+        nonlocal counter
+        visited[node] = True
+        postorder[node][0] = counter
+        counter += 1
+
+        for neighbor in indegree_adj[node]:
+            if not visited[neighbor]:
+                dfs(neighbor)
+
+        postorder[node][1] = counter
+        counter +=1
+        return
+
+    for i in range(len(indegree_adj)):
+        if not visited[i]:
+            dfs(i)
+
+    return
+
+def find_max_postorder_node(postorder):
+    '''Returns the index in postordera array which has maximum postorder'''
+    max_val = -1
+    i = -1
+    for index, val in enumerate(postorder):
+        if val[1] > max_val:
+            max_val = val[1]
+            i = index
+    return i
+
+def scratch_postorder(entry, postorder):
+    for e in entry:
+        postorder[e] = [-1,-1]
+
+## Contains implementation using postorder as list of lists, heap, ordered_dict(works!!)
+## Not a naive implementation
+def number_of_strongly_connected_components(adj):
+    indegree_adj = [[] for _ in range(len(adj))]
+    # print(indegree_adj)
+    for i in range(len(adj)):
+        for val in adj[i]:
+            indegree_adj[val].append(i)
+
+    # print(indegree_adj)
+
+    # postorder = [[0,0] for _ in range(len(adj))] ## Moving to Ordered Dict to handle large datasets
+
+    postordered_od = OrderedDict({i: [0,0] for i in range(len(adj))})
+
+
+    # find_postorders_reverse_graph(postorder,indegree_adj)
+    find_postorders_reverse_graph(postordered_od,indegree_adj)
+
+    # print(postordered_od)
+
+    # Heap solution not viable as after DFS we need to remove traversed components as well
+    # postorder_heap = list((-val[1],node) for node, val in enumerate(postorder))
+    # heapq.heapify(postorder_heap)  # adding minus as heapq is min heap
+    # print(postorder_heap)
+
+    postordered_od = sorted(postordered_od, key=lambda x: postordered_od[x][1], reverse=True)
+
+    # print(postordered_od)
+
+    visited = [False] * len(adj)
+    scc = []
+
+    def do_dfs(node, entry):
+        visited[node] = True
+        entry.add(node)
+
+        for neighbor in adj[node]:
+            if not visited[neighbor]:
+                do_dfs(neighbor, entry)
+
+        return
+
+    while not all(visited):
+        # max_postorder_node = find_max_postorder_node(postorder) # Replacing with heap to handle large datasets
+        # max_postorder_val, max_postorder_node = heapq.heappop(postorder_heap)
+        max_postorder_node = postordered_od[0]
+        scc_entry = set()
+        do_dfs(max_postorder_node, scc_entry)
+        # print(scc_entry)
+        scc.append(scc_entry)
+        # scratch_postorder(scc_entry, postorder) # Replacing with heap to handle large datasets
+        for e in scc_entry:
+            postordered_od.remove(e)
+
+    # print(scc)
+    return len(scc)
 
 
 def merge_sets(list_of_sets):
@@ -51,8 +139,6 @@ def merge_sets(list_of_sets):
             new_list.append(dfs(i,sez))
 
     return new_list
-
-
 
 
 def number_of_strongly_connected_components_naive(adj):
