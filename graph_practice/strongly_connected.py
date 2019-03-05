@@ -120,6 +120,7 @@ def number_of_strongly_connected_components(adj):
     # print(scc)
     return len(scc)
 
+#### NAIVE IMPLEMENTATION BEGINS ####
 
 def merge_sets(list_of_sets):
     new_list = []
