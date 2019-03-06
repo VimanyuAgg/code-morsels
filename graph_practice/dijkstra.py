@@ -1,7 +1,6 @@
 #Uses python3
 
 import sys
-from collections import deque
 import heapq
 
 def distance(adj, cost, s, t):
