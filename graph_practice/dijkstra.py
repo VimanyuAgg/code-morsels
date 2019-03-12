@@ -13,6 +13,7 @@ def distance(adj, cost, s, t):
         heap.append((sys.maxsize,i))
         distance_from_s[i] = sys.maxsize
 
+    # do this before the for loop - need to heapify only once
     distance_from_s[s] = 0
 
     heap.append((0, s))
