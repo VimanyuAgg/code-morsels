@@ -13,6 +13,7 @@ def distance(adj, cost, s, t):
         heap.append((sys.maxsize,i))
         distance_from_s[i] = sys.maxsize
 
+    # do this before the for loop - need to heapify only once
     distance_from_s[s] = 0
 
     heap.append((0, s))
@@ -25,6 +26,7 @@ def distance(adj, cost, s, t):
         # print(f"node: {node}, d:{d}")
 
         if node not in distance_from_s or distance_from_s[node] != d:
+            '''We have already consumed this node -- This is just a leftover'''
             continue
 
         if node == t and d != sys.maxsize:
@@ -41,7 +43,6 @@ def distance(adj, cost, s, t):
                 heapq.heappush(heap, (distance_from_s[neighbor], neighbor))
 
             # print(distance_from_s)
-
 
     return -1
 
