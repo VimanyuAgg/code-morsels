@@ -1,12 +1,14 @@
 from collections import deque
+
+
 def window_original(seq, n):
     if n == 0 or seq is None or len(seq) < n:
         return []
 
     i = n
     res = []
-    while i < len(seq)+1:
-        res.append(tuple(seq[j] for j in range(i-n, i)))
+    while i < len(seq) + 1:
+        res.append(tuple(seq[j] for j in range(i - n, i)))
         i += 1
 
     return res
@@ -19,8 +21,8 @@ def window_1(seq, n):
     res = []
     i = n
 
-    while i < len(seq)+1:
-        res.append(tuple(seq[i-n:i]))
+    while i < len(seq) + 1:
+        res.append(tuple(seq[i - n:i]))
         i += 1
 
     return res
@@ -54,7 +56,10 @@ def window_3(seq, n):
 
 
 def window_4(seq, n):
-    entry = []
+    entry = []  # works as well
+    entry = deque(maxlen=n)
+
+    #  Fails on self.assertEqual(next(inputs), 9) in lazy_iterator return
 
     for s in seq:
         if len(entry) < n:
@@ -64,16 +69,31 @@ def window_4(seq, n):
         yield tuple(entry)
 
         entry.append(s)
-        entry = entry[1:]
+        # entry = entry[1:]
 
     yield tuple(entry)
 
 
+def window_5(seq, n):
+    entry = deque(maxlen=n)
+
+    for s in seq:
+        if len(entry) < n:
+            entry.append(s)
+            if len(entry) == n:
+                yield tuple(entry)
+
+            continue
+
+        entry.append(s)
+        yield tuple(entry)
+
 
 if __name__ == "__main__":
-    inputs = (n**2 for n in [1, 2, 3, 4, 5])
+    inputs = (n ** 2 for n in [1, 2, 3, 4, 5])
     iterable = window_4(inputs, 2)
-    print(iter(iterable))
-    print(iter(iterable))
-    print(iter(iterable) == iter(iterable))
+    res1 = iter(iterable)
+    res2 = iter(iterable)
+    print(res1 == res2)
+    print(res1 is res2)
     print(next(iterable))

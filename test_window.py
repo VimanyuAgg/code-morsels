@@ -1,6 +1,6 @@
 import unittest
 
-from w18_window import window_3 as window
+from w18_window import window_5 as window
 
 
 class WindowTests(unittest.TestCase):
@@ -34,22 +34,21 @@ class WindowTests(unittest.TestCase):
         outputs = [(1, 2, 3), (2, 3, 4), (3, 4, 5), (4, 5, 6)]
         self.assertIterableEqual(window(inputs, 3), outputs)
 
-    # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_accepts_iterator(self):
         inputs = (n**2 for n in [1, 2, 3, 4])
         outputs = [(1, 4), (4, 9), (9, 16)]
         self.assertIterableEqual(window(inputs, 2), outputs)
 
-    # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+
+    # @unittest.expectedFailure
     def test_returns_lazy_iterable(self):
         inputs = (n**2 for n in [1, 2, 3, 4, 5])
         iterable = window(inputs, 2)
         self.assertEqual(iter(iterable), iter(iterable))
-        # self.assertEqual(next(iterable), (1, 4))
-        # self.assertEqual(next(inputs), 9)
-        # self.assertEqual(list(iterable), [(4, 16), (16, 25)])
+        self.assertEqual(next(iterable), (1, 4))
+        self.assertEqual(next(inputs), 9)
+        self.assertEqual(list(iterable), [(4, 16), (16, 25)])
 
 
 if __name__ == "__main__":
