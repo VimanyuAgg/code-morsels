@@ -89,6 +89,23 @@ def window_5(seq, n):
         yield tuple(entry)
 
 
+def window_6(seq, n):
+    entry = deque(maxlen=n)
+    iterablez = iter(seq)
+
+    for _ in range(n):
+        entry.append(next(iterablez))
+
+    yield tuple(entry)
+
+    for n in iterablez:
+        entry.append(n)
+        yield tuple(entry)
+
+
+
+
+
 if __name__ == "__main__":
     inputs = (n ** 2 for n in [1, 2, 3, 4, 5])
     iterable = window_4(inputs, 2)
