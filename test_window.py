@@ -1,6 +1,6 @@
 import unittest
 
-from w18_window import window_1  as window
+from w18_window import window_2 as window
 
 
 class WindowTests(unittest.TestCase):

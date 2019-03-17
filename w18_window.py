@@ -10,7 +10,8 @@ def window_original(seq, n):
 
     return res
 
-def window_1(seq,n):
+
+def window_1(seq, n):
     if n == 0 or seq is None or len(seq) < n:
         return []
 
@@ -19,9 +20,18 @@ def window_1(seq,n):
 
     while i < len(seq)+1:
         res.append(tuple(seq[i-n:i]))
-        i+=1
+        i += 1
 
     return res
+
+
+def window_2(seq, n):
+    if n == 0 or seq is None or len(seq) < n:
+        return []
+
+    sequences = [seq[i:] for i in range(n)]
+
+    return zip(*sequences)
 
 
 
