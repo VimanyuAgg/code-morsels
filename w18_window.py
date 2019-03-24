@@ -1,5 +1,5 @@
 from collections import deque
-
+import itertools
 
 def window_original(seq, n):
     if n == 0 or seq is None or len(seq) < n:
@@ -103,7 +103,13 @@ def window_6(seq, n):
         yield tuple(entry)
 
 
-
+def window_7(seq, n):
+    iterablez = iter(seq)
+    entry = deque(itertools.islice(iterablez, n), maxlen=n)
+    yield tuple(entry)
+    for item in iterablez:
+        entry.append(item)
+        yield tuple(entry)
 
 
 if __name__ == "__main__":
