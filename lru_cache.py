@@ -15,7 +15,8 @@ class LRUCache:
     def get(self, key: int) -> int:
         if key in self.hm:
             val = self.hm[key]
-            self.hm.pop(key)
+            # self.hm.pop(key)
+            del self.hm[key]
             self.hm[key] = val  # add in order
             return val
 
@@ -29,7 +30,8 @@ class LRUCache:
 
         if len(self.hm) > self.cap:
             for k in self.hm:
-                self.hm.pop(k)
+                # self.hm.pop(k)
+                del self.hm[k]
                 break
 
         return
