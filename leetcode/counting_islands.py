@@ -36,7 +36,7 @@ def dfs(grid, visited, row_max, col_max, row, col):
         count += 1
         for neigh in zip(row_neigh, col_neigh):
             r = row + neigh[0]
-            c = co  l + neigh[1]
+            c = col + neigh[1]
             dfs(grid, visited, row_max, col_max, r, c)
 
     return count
