@@ -1,5 +1,5 @@
 import unittest
-from leetcode.fruit_into_baskets import total_fruits
+from leetcode.fruit_into_baskets import total_fruits_2 as total_fruits
 
 class TestFruitInBaskets(unittest.TestCase):
 

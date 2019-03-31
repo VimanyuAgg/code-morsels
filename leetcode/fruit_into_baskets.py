@@ -1,4 +1,4 @@
-def total_fruits(trees):
+def total_fruits_1(trees):
     '''O(1) space and O(n) time <- best possible'''
 
     if len(trees) <= 2:
@@ -51,4 +51,39 @@ def total_fruits(trees):
                 res = max_fruit + 1
 
     return res
+
+
+def total_fruits_2(trees):
+
+    if len(trees) <= 2:
+        return len(trees)
+    running_sum = 0
+    res = 0
+    basket = set()
+
+    for i, val in enumerate(trees):
+        if val in basket:
+            running_sum += 1
+
+        elif len(basket) < 2:
+            basket.add(val)
+            running_sum += 1
+
+        else:
+            if running_sum > res:
+                res = running_sum
+
+            prev = trees[i- 1]
+            basket = set()
+            basket.add(val)
+            basket.add(prev)
+            running_sum = 2
+            j = i-2
+            while j >= 0 and trees[j] == prev:
+                running_sum += 1
+                j -= 1
+
+        # print(f"trees:{trees},i:{i}, val:{val}, basket:{basket}, running_sum:{running_sum}, res:{res}")
+
+    return res if res > running_sum else running_sum
 
