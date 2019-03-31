@@ -7,6 +7,7 @@ def total_fruits(trees):
 
     max_fruit = 1  # min trees is 1, this variable will keep on updating as we progress through array
     run_counter = 0  # stores how much variation is there in next val as compared to current val in trees array
+    # next possible run_counter is always zero or negative of previous value
     res = 1  # final result
 
     for i in range(len(trees)):
