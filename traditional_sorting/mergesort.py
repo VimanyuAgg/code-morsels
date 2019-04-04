@@ -25,7 +25,7 @@ def merge_after2(arr1, arr2):
             result.append(arr2[p2])
             p2 +=1
 
-    result += arr1[p1:] # Easy to ask forgiveness than permission
+    result += arr1[p1:]  # Easier to ask forgiveness than permission
     result += arr2[p2:]
     return result
 

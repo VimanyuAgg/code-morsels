@@ -15,14 +15,13 @@ def partition_median_of_three(array, begin, end):
     median = arr_3[0]
 
     array[begin], array[(begin+end)//2], array[end] = median, min_val, max_val
-    pivot = begin
-    pos = pivot
+    pos = begin
     for i in range(begin+1, end+1):
-        if array[i] <= array[pivot]:
+        if array[i] <= array[begin]:
             pos += 1
             array[i], array[pos] = array[pos], array[i]
 
-    array[pivot], array[pos] = array[pos], array[pivot]
+    array[begin], array[pos] = array[pos], array[begin]
     return pos
 
 def quicksort_last_elem_pivot(array, begin = 0, end = None):
@@ -41,17 +40,14 @@ def quicksort_last_elem_pivot(array, begin = 0, end = None):
 
 
 def partition_last_elem_pivot(array, begin, end):
-    pivot = end
+    array[end], array[begin] = array[begin], array[end]
     pos = begin
-
-    array[pivot], array[begin] = array[begin], array[pivot]
-    pivot = begin
     for i in range(begin + 1, end + 1):
-        if array[i] <= array[pivot]:
+        if array[i] <= array[begin]:
             pos += 1
             array[i], array[pos] = array[pos], array[i]
 
-    array[pos], array[pivot] = array[pivot], array[pos]
+    array[pos], array[begin] = array[begin], array[pos]
     return pos
 
 def partition(array, begin, end):
