@@ -18,4 +18,17 @@ def bubble_sort_original(arr):
     return arr
 
 
+def bubble_sort_1(arr):
+    if arr is None or len(arr) <= 1:
+        return arr
+
+    has_changed = True
+    while has_changed:
+        has_changed = False
+        for i in range(len(arr)-1):
+            if arr[i] > arr[i+1]:
+                arr[i], arr[i+1] = arr[i+1], arr[i]
+                has_changed = True
+
+    return arr
 
