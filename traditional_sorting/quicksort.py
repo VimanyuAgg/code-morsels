@@ -62,9 +62,11 @@ def partition(array, begin, end):
     return pos
 
 
-def quicksort_modular(array, begin=0, end=None):
-    if end is None:
-        end = len(array) - 1
+def quicksort_modular(array):
+
+    if array is None or len(array) <= 1:
+        return array
+
     def _inner_quicksort(array, begin, end):
         # avoid checking end is None in each iteration
         if begin >= end:
@@ -73,7 +75,8 @@ def quicksort_modular(array, begin=0, end=None):
         _inner_quicksort(array, begin, pivot-1)
         _inner_quicksort(array, pivot+1, end)
         return array
-    return _inner_quicksort(array, begin, end)
+
+    return _inner_quicksort(array, 0, len(array) - 1)
 
 
 
@@ -98,8 +101,38 @@ def quicksort_original(arr, pivot_index=None, end=None):
     return arr
 
 
-# arr = [2,3,1,4,5]
-# print(quicksort_original(arr))
+def stable_quicksort(arr):
+
+    if arr is None or len(arr) <= 1:
+        return arr
+
+
+    left, right = [], []
+
+    pivot_index = (len(arr)-1)//2
+    pivot = arr[pivot_index]  # Can choose leftmost, rightmost or median of the three elements. While choosing median as pivot,
+    # care must be taken to ensure that first minimum is selected for begin and/or first max is selected for last elem
+
+    for i in range(len(arr)):
+        if arr[i] > pivot:
+            right.append(arr[i])
+
+        elif arr[i] < pivot:
+            left.append(arr[i])
+
+        else:
+            # arr[i] == pivot and not the same element
+            if i < pivot_index:
+                left.append(arr[i])
+            elif i > pivot_index:
+                right.append(arr[i])
+
+    return stable_quicksort(left) + [pivot] + stable_quicksort(right)
+
+
+
+arr = [2,3,1,4,5]
+print(stable_quicksort(arr))
 
 
 
