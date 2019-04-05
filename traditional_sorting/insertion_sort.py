@@ -19,6 +19,10 @@ def insertion_sort(arr):
 
 def insertion_sort_2(lst):
     #timeit shows it's better
+
+    if lst is None or len(lst)  <= 1:
+        return lst
+
     for index in range(1, len(lst)):
 
         currentvalue = lst[index]
