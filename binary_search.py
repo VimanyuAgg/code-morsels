@@ -13,6 +13,32 @@ doesn't exist in the list."""
 
 import math
 
+def binary_search_2(arr,n):
+    '''Returns the index of n if exists else -1'''
+
+    if arr is None or len(arr) == 0:
+        return -1
+
+    def _helper(left, right):
+
+        if left > right:
+            return -1
+
+        mid = (left+right)//2
+
+        if arr[mid] == n:
+            return mid
+
+        elif arr[mid] > n:
+            return _helper(left, mid)
+
+        elif arr[mid] < n:
+            return _helper(mid, right)
+
+    return _helper(0, len(arr)-1)
+
+
+
 def binary_search(input_array, value):
     """Your code goes here."""
     left = 0

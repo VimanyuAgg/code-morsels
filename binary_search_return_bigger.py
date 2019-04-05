@@ -22,5 +22,7 @@ def binary_search(arr, n):
     return _helper(arr, 0, len(arr) - 1, n)
 
 
+
+
 print(binary_search([1, 3, 4, 6, 7], 8))
 print(binary_search([1, 3, 9, 16, 17], 8))
