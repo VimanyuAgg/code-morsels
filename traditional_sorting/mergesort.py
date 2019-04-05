@@ -96,4 +96,4 @@ def merge_original(arr1, arr2):
     return result
 
 
-print(merge_sort_original([2,3,1,4,5]))
+# print(merge_sort_original([2,3,1,4,5]))

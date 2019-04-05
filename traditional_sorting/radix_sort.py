@@ -13,6 +13,7 @@ def radix_sort(array):
     need_run = {True}
     while True in need_run:
         print(f"mod_val: {mod_val}")
+        print(f"array:{array}")
         need_run = {False}
         for i in array:
 
@@ -20,10 +21,13 @@ def radix_sort(array):
                 # we need another run if digits of any i in current run exceeds those in (mod_val -1)
                 # need an extra run so that values fall into bucket[0] and bucket[9]
                 # mod_val starts in 10 so chosen div_val - 1
+                # we need to keep going till we haven't parsed all digits of i
+                print(f"abs({i})//{div_val} = {abs(i)//div_val}")
                 need_run.add(True)
 
             val = i % mod_val
             val = val // div_val
+            print(f"{i} from array was put in bucket[{val}]")
             bucket[val].append(i)
 
         print(f"bucket: {bucket}")
@@ -31,7 +35,7 @@ def radix_sort(array):
         if not (True in need_run):
             return serialize_arr_from_dict(bucket,array,last_run=True)
 
-        serialize_arr_from_dict(bucket, array)
+        array = serialize_arr_from_dict(bucket, array)
         div_val *= 10
         mod_val *= 10
 
@@ -44,6 +48,7 @@ def serialize_arr_from_dict(bucket, array, last_run=False):
     key = 0
     print(f"Before Serialized array: {array}")
     pointer = 0
+
     while pointer < len(array):
         try:
             array[pointer] = bucket[key].pop(0)
@@ -158,6 +163,47 @@ def radix_sort_offset(unsorted, offset):
         buckets[byte_at_offset].append(num)
 
     return list(itertools.chain.from_iterable(buckets))
+
+def radix_sort_after(arr):
+
+    if arr is None or len(arr) <= 1:
+        return arr
+
+    bucket = [[] for _ in range(10)]
+
+    div_val = 1
+    mod_val = 10
+    need_run = {True}
+
+    while True in need_run:
+        need_run = {False}
+
+        for i in arr:
+
+            if abs(i)//div_val > 0:
+                need_run.add(True)
+
+            b = i % mod_val
+            b = b//div_val
+            bucket[b].append(i)
+
+
+        if not (True in need_run):
+            return bucket[9] + bucket[0]
+
+        arr = serialize_bucket(bucket)
+        div_val *= 10
+        mod_val *= 10
+
+def serialize_bucket(bucket):
+    arr = []
+    for i in range(10):
+        arr += bucket[i]
+        bucket[i] = []
+
+    return arr
+
+
 # print(radixSort([-1,-5,-50,-50,0,2,3]))
 # print(radixSort([0,0,0,0,0,0]))
 # print(radixSort([1,4,5,2,3]))
@@ -171,3 +217,4 @@ def radix_sort_offset(unsorted, offset):
 # print(radix_sort([2, 3, 0, -1, -5,10]))
 
 # print(radix_sort_bit_manipulation([1,4,257,2,3]))
+
