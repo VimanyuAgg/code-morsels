@@ -1,5 +1,5 @@
 def merge_sort_original(arr):
-    if len(arr) <= 1:
+    if arr is None or len(arr) <= 1:
         return arr
     mid = len(arr)//2
     print ("**************")
