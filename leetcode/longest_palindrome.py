@@ -1,3 +1,32 @@
+def longest_palindrome_substring_middleout(s):
+    if s is None or len(s) == 0:
+        return ""
+
+    start, end = 0, 0
+
+    for i in range(len(s)):
+        left = i
+        right = i
+
+        while left >= 0 and s[left] == s[i]:
+            left -= 1
+
+        while right < len(s) and s[right] == s[i]:
+            right += 1
+
+        while left >= 0 and right < len(s) and s[left] == s[right]:
+            left -= 1
+            right += 1
+
+        left += 1
+        right -= 1
+
+        if right - left >= end - start:
+            start, end = left, right
+
+    return s[start:end + 1]
+
+
 def longest_palindromic_substring_dp(s):
 
     if s is None or len(s) <= 0:
