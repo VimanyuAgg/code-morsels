@@ -1,6 +1,6 @@
 import copy
 
-def solveNQueens(n: int):
+def solveNQueens(n: int, serialized=False):
     '''@input: n is the grid size'''
     res = []
     # columns[6] = 3 means on row '6' queen is placed on column 3
@@ -39,5 +39,23 @@ def solveNQueens(n: int):
 
         return True
 
+    def _serialize_result():
+        nonlocal res
+        serres = []
+        for sol in res:
+            ser_sol = []
+            for i in range(n):
+                entry = ['.' for _ in range(n)]
+                entry[sol[i]] = 'Q'
+                ser_sol.append(''.join(entry))
+            serres.append(ser_sol)
+
+        return serres
+
     _placeQueen(0, cols)
-    return res
+
+    if not serialized:
+        return res
+
+    else:
+        return _serialize_result()

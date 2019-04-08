@@ -7,5 +7,9 @@ class TestNQueens(unittest.TestCase):
         self.assertEqual(solveNQueens(4),[[1,3,0,2],[2,0,3,1]])
 
 
+    def test_serialized(self):
+        self.assertEqual(solveNQueens(4, serialized=True), [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]])
+
+
 if __name__ == "__main__":
     unittest.main()
