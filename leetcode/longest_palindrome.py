@@ -1,4 +1,52 @@
-def longest_palindrome(s):
+def longest_palindrome_substring_middleout(s):
+    if s is None or len(s) == 0:
+        return ""
+
+    start, end = 0, 0
+
+    for i in range(len(s)):
+        left = i
+        right = i
+
+        while left >= 0 and s[left] == s[i]:
+            left -= 1
+
+        while right < len(s) and s[right] == s[i]:
+            right += 1
+
+        while left >= 0 and right < len(s) and s[left] == s[right]:
+            left -= 1
+            right += 1
+
+        left += 1
+        right -= 1
+
+        if right - left >= end - start:
+            start, end = left, right
+
+    return s[start:end + 1]
+
+
+def longest_palindromic_substring_dp(s):
+
+    if s is None or len(s) <= 0:
+        return ""
+    dp = [[False for _ in range(len(s))] for __ in range(len(s))]
+    start = 0
+    end = 0
+    for i in range(len(s)):
+        for j in range(i, -1, -1):
+            if s[i] == s[j] and (i - j < 3 or dp[i - 1][j + 1]):
+                dp[i][j] = True
+                if i - j >= end - start:
+                    end, start = i, j
+                    # print(f"start:{start}, end:{end}")
+    # print(dp)
+    return s[start:end + 1]
+
+
+
+def longest_palindrome_original(s):
 
     if s is None or len(s) == 0:
         return ""
