@@ -173,22 +173,21 @@ def radix_sort_after(arr):
 
     div_val = 1
     mod_val = 10
-    need_run = {True}
+    need_run = True
 
-    while True in need_run:
-        need_run = {False}
+    while need_run:
+        need_run = False
 
         for i in arr:
 
             if abs(i)//div_val > 0:
-                need_run.add(True)
+                need_run = True
 
             b = i % mod_val
             b = b//div_val
             bucket[b].append(i)
 
-
-        if not (True in need_run):
+        if not need_run:
             return bucket[9] + bucket[0]
 
         arr = serialize_bucket(bucket)
