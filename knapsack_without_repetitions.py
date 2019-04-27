@@ -68,7 +68,7 @@ def knapsack_without_repetitions_dynamic(capacity, w_arr, val_arr):
             w_v_array[w][i] = w_v_array[w][i-1]
 
             if w_arr[i-1] <= w:
-                val = w_v_array[w-w_arr[i-1]][i-1] + val_arr[i-1]
+                val = w_v_array[w - w_arr[i-1]][i-1] + val_arr[i-1]
                 w_v_array[w][i] = max(w_v_array[w][i], val)
 
     return w_v_array[capacity][len(w_arr)]

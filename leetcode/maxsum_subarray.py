@@ -17,8 +17,8 @@ def maxsum_subarray(arr):
         if running_sum > maxsum:
             maxsum = running_sum
 
-        if running_sum < 0:
-            running_sum = 0
+            if running_sum < 0:
+                running_sum = 0
 
-    return maxsum
+        return maxsum
 
