@@ -9,6 +9,11 @@ class TestLongestCommonSubsequence(unittest.TestCase):
         self.assertEqual(longest_common_subsequence(arr1, arr2)[0], 5)
         self.assertEqual(backtrack_common_subsequence(arr1, arr2), 'BABDL')
 
+    def test2 (self):
+        arr1 = ""
+        arr2 = "CBADKJBBBDL"
+        self.assertEqual(longest_common_subsequence(arr1, arr2)[0], 0)
+        self.assertEqual(backtrack_common_subsequence(arr1, arr2), '')
 
 if __name__ == "__main__":
     unittest.main()
