@@ -1,5 +1,5 @@
 def partition_median_of_three(array, begin, end):
-    arr_3 = [array[begin],array[(begin+end)//2] ,array[end]]
+    arr_3 = [array[begin], array[(begin+end)//2], array[end]]
     max_val = max(arr_3)
     arr_3.remove(max_val)
     print(f"max_val: {max_val}")
