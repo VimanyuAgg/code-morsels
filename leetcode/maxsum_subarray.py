@@ -20,5 +20,5 @@ def maxsum_subarray(arr):
             if running_sum < 0:
                 running_sum = 0
 
-        return maxsum
+    return maxsum
 
