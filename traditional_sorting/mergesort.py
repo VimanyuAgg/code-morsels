@@ -16,7 +16,7 @@ def merge_after2(arr1, arr2):
     result = []
     p1 = 0
     p2 = 0
-
+    
     while p1 < len(arr1) and p2 < len(arr2):
         if arr1[p1] <= arr2[p2]:
             result.append(arr1[p1])
