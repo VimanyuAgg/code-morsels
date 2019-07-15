@@ -61,3 +61,4 @@ if __name__ == '__main__':
         cost[a - 1].append(w)
     s, t = data[0] - 1, data[1] - 1
     print(distance(adj, cost, s, t))
+
