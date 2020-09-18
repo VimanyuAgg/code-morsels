@@ -37,4 +37,4 @@ class Test(unittest.TestCase):
 
 
 if __name__ == "__main__":
-  unittgit est.main()
+  unittest.main()
