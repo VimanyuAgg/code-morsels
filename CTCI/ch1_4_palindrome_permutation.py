@@ -20,6 +20,29 @@ def is_palindrome_permutation(s):
     # https://stackoverflow.com/questions/46044936/bitwise-and-between-negative-and-positive-numbers
     return bit_vector & (bit_vector - 1) == 0
 
+
+from collections import Counter
+
+def is_palindrome_permutation_2(s):
+    if not s:
+        return False
+    s = s.replace(' ', '')
+    s = s.lower()
+
+    counter = Counter(s)
+    is_even = len(s) % 2 == 0
+    odd_check = False
+    for k, v in counter.items():
+        if is_even and (v % 2 != 0):
+            return False
+        if (not is_even) and (v % 2 != 0):
+            if not odd_check:
+                odd_check = True
+                continue
+            return False
+
+    return True
+
 class Test(unittest.TestCase):
     '''Test Cases'''
     data = [
@@ -35,6 +58,8 @@ class Test(unittest.TestCase):
     def test_pal_perm(self):
         for [test_string, expected] in self.data:
             actual = is_palindrome_permutation(test_string)
+            self.assertEqual(actual, expected)
+            actual = is_palindrome_permutation_2(test_string)
             self.assertEqual(actual, expected)
 
 if __name__ == "__main__":
