@@ -1,16 +1,23 @@
-from CTCI.linked_list import Node
+
+class Node:
+    next = None
+
+    def __init__(self, val):
+        self.val = val
+
 
 def sum_lists(head1, head2):
     l1 = head1
     l2 = head2
-    sum = Node()
+    sum = Node(None)
+    head = sum
     print("init sum: {}".format(sum))
     carry = 0
     counter = 0
 
-    while(l1 != None or l2 != None):
+    while (l1 != None or l2 != None):
 
-        print("iteration: {} - sum: {}, carry = {}".format(counter,sum,carry))
+        print("iteration: {} - sum: {}, carry = {}".format(counter, sum, carry))
         counter += 1
         val = carry
         if (l1 != None):
@@ -22,18 +29,35 @@ def sum_lists(head1, head2):
             l2 = l2.next
 
         if sum.val is None:
-            sum.val = val %10
-            carry = val//10
+            sum.val = val % 10
+            carry = val // 10
         else:
-            new_node = Node(val%10)
-            carry = val//10
-            new_node.next = sum
+            new_node = Node(val % 10)
+            carry = val // 10
+            sum.next = new_node
             sum = new_node
 
     if carry > 0:
         ## sum must have already been updated so it cannot be None
         new_node = Node(carry)
-        new_node.next = sum
-        sum = new_node
+        sum.next = new_node
 
-    return sum
+    return head
+
+
+def create_ll(item_list):
+    temp = None
+    head = None
+    for item in item_list:
+        n1 = Node(item)
+        if temp:
+            temp.next = n1
+        if not head:
+            head = n1
+        temp = n1
+    return head
+
+
+l1 = create_ll([7, 2, 3])
+l2 = create_ll([8, 2, 9])
+r = sum_lists(l1, l2)
