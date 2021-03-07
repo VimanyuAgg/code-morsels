@@ -1,8 +1,8 @@
 class Node:
-    next = None
 
-    def __init__(self, val):
+    def __init__(self, val=None, next=None):
         self.val = val
+        self.next = next
 
 
 def get_length(l):
@@ -73,8 +73,8 @@ def sum_lists_followup(head1, head2):
     sum = Node(None)
     print("init sum: {}".format(sum))
     head1, head2 = pad_lists_if_needed(head1, head2)
-    print(f"head1.val: {head1.val}")
-    print(f"head2.val: {head2.val}")
+    # print(f"head1.val: {head1.val}")
+    # print(f"head2.val: {head2.val}")
     sum, carry = sum_helper(head1, head2, sum)
     if carry:
         n = Node(carry)
@@ -110,3 +110,70 @@ r2 = sum_lists_followup(l3, l4)
 print(r2.val)
 print(r2.next.val)
 print(r2.next.next.val)
+
+from ch2_5_sum_lists import sum_lists
+
+
+def reverse_ll(l):
+    prev = None
+    while l:
+        next = l.next
+        l.next = prev
+        prev = l
+        l = next
+    return prev
+
+
+def sum_lists_follow_up_reuse(l1, l2):
+    rl1 = reverse_ll(l1)
+    rl2 = reverse_ll(l2)
+    rsum = sum_lists(rl1, rl2)
+    return reverse_ll(rsum)
+
+r_reuse = sum_lists_follow_up_reuse(l1, l2)
+r2_reuse = sum_lists_follow_up_reuse(l3, l4)
+
+print('##')
+while r_reuse:
+    print(r_reuse.val)
+    r_reuse = r_reuse.next
+
+print('##')
+while r2_reuse:
+    print(r2_reuse.val)
+    r2_reuse = r2_reuse.next
+
+# 3 2 7
+n13 = Node(7)
+n12 = Node(2, n13)
+n11 = Node(3, n12)
+
+# 9 2 8
+n23 = Node(8)
+n22 = Node(2, n23)
+n21 = Node(9, n22)
+
+# 1 2 5 5
+s = sum_lists_follow_up_reuse(n11, n21)
+print('##')
+while s:
+  print(s.val)
+  s = s.next
+
+# 3 2 7 6
+n14 = Node(6)
+n13 = Node(7, n14)
+n12 = Node(2, n13)
+n11 = Node(3, n12)
+
+# 9 2 8
+n23 = Node(8)
+n22 = Node(2, n23)
+n21 = Node(9, n22)
+
+# 4 2 0 4
+s = sum_lists_follow_up_reuse(n11, n21)
+print ('##')
+while s:
+  print(s.val)
+  s = s.next
