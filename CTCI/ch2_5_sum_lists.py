@@ -6,18 +6,16 @@ class Node:
         self.val = val
 
 
-def sum_lists(head1, head2):
-    l1 = head1
-    l2 = head2
+def sum_lists(l1, l2):
     sum = Node(None)
-    head = sum
+    dummy_head = sum
     print("init sum: {}".format(sum))
     carry = 0
     counter = 0
 
     while (l1 != None or l2 != None):
 
-        print("iteration: {} - sum: {}, carry = {}".format(counter, sum, carry))
+        print("iteration: {} - sum: {}, carry = {}".format(counter, sum.val, carry))
         counter += 1
         val = carry
         if (l1 != None):
@@ -28,21 +26,16 @@ def sum_lists(head1, head2):
             val += l2.val
             l2 = l2.next
 
-        if sum.val is None:
-            sum.val = val % 10
-            carry = val // 10
-        else:
-            new_node = Node(val % 10)
-            carry = val // 10
-            sum.next = new_node
-            sum = new_node
+        new_node = Node(val % 10)
+        carry = val // 10
+        sum.next = new_node
+        sum = new_node
 
-    if carry > 0:
-        ## sum must have already been updated so it cannot be None
+    if carry:
         new_node = Node(carry)
         sum.next = new_node
 
-    return head
+    return dummy_head.next
 
 
 def create_ll(item_list):
@@ -61,3 +54,7 @@ def create_ll(item_list):
 l1 = create_ll([7, 2, 3])
 l2 = create_ll([8, 2, 9])
 r = sum_lists(l1, l2)
+print('running through sum')
+while r:
+    print(r.val)
+    r = r.next
