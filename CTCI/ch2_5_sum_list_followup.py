@@ -70,7 +70,7 @@ def sum_lists_followup(head1, head2):
     if not head2:
         return head1
 
-    sum = Node(None)
+    sum = Node()
     print("init sum: {}".format(sum))
     head1, head2 = pad_lists_if_needed(head1, head2)
     # print(f"head1.val: {head1.val}")
