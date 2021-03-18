@@ -15,10 +15,10 @@ def binary_search_2(arr,n):
             return mid
 
         elif arr[mid] > n:
-            return _helper(left, mid)
+            return _helper(left, mid - 1)
 
         elif arr[mid] < n:
-            return _helper(mid, right)
+            return _helper(mid + 1, right)
 
     return _helper(0, len(arr)-1)
 
